@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Marcar Encontro</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label floating>Descrição</ion-label>
+        <ion-input type="text" name="descricao" [(ngModel)]="descricao" floating clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Data</ion-label>
+        <ion-datetime displayFormat="DD de MMMM de YYYY" min="2017" max="2099-12-31" [(ngModel)]="data"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Hora</ion-label>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="hora"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Local</ion-label>
+        <ion-input type="text" [(ngModel)]="local" floating clearInput></ion-input>
+    </ion-item>
+
+    <div class="wrapper">
+        <button ion-button outline (click)="marcarEncontro()">Marcar</button>
+    </div>
+</ion-content>
