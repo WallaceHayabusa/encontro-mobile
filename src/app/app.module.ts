@@ -11,6 +11,18 @@ import { MarcarEncontroPage } from './../pages/marcar-encontro/marcar-encontro';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+const firebaseConfig= {
+  apiKey: "AIzaSyCe89mtfwb4_AGVWDo8RlNOy8U0QL1viAw",
+  authDomain: "aplicativo-marcar-encontro.firebaseapp.com",
+  databaseURL: "https://aplicativo-marcar-encontro.firebaseio.com",
+  projectId: "aplicativo-marcar-encontro",
+  storageBucket: "aplicativo-marcar-encontro.appspot.com",
+  messagingSenderId: "245848451215"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,6 +36,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
       monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
       'Outubro', 'Novembro', 'Dezembro']
     }),
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

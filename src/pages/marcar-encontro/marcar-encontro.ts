@@ -1,4 +1,5 @@
-import { NavController, AlertController } from 'ionic-angular';
+import { AgendaPage } from './../agenda/agenda';
+import { NavController, NavParams, AlertController, NavOptions } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 import { Encontro } from './../../app/encontro/encontro';
@@ -16,8 +17,8 @@ export class MarcarEncontroPage {
     encontro: Encontro = new Encontro();
     encontros: Encontro[] = [];
 
-    constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-
+    constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+        
     }
 
     marcarEncontro() {
@@ -26,11 +27,16 @@ export class MarcarEncontroPage {
         this.encontro.hora = this.hora;
         this.encontro.local = this.local;
 
-        if(this.descricao == null || this.data == null || this.hora == null || this.local == null) {
+        // this.encontros = this.navParams.get('listaEncontros');
+
+        if(this.descricao != undefined && this.data != undefined && this.hora != undefined && this.local != undefined) {
+            this.encontros.push(this.encontro);
+            this.navCtrl.push(AgendaPage, {
+                param: this.encontros
+            });
+        } else {
             this.showAlert();
         }
-            this.encontros.push(this.encontro);
-
     }
 
     showAlert() {

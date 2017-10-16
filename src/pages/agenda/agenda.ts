@@ -1,7 +1,8 @@
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 import { MarcarEncontroPage } from './../marcar-encontro/marcar-encontro';
+import { Encontro } from './../../app/encontro/encontro';
 
 @Component({
     selector: 'agenda-page',
@@ -9,13 +10,17 @@ import { MarcarEncontroPage } from './../marcar-encontro/marcar-encontro';
 })
 export class AgendaPage {
 
-    encontros: Array<String>;
+    encontros: Encontro[] = [];
 
-    constructor(public navCtrl: NavController) {
-        
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.encontros = this.navParams.get('param');
     }
 
     goToMarcarEncontro() {
-        this.navCtrl.push(MarcarEncontroPage);
+        this.navCtrl.push(MarcarEncontroPage, {
+            listaEncontros: this.encontros
+        });
     }
+
+    
 }
