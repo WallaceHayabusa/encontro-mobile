@@ -1,9 +1,11 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { SigninPage } from './../pages/signin/signin';
 import { AgendaPage } from './../pages/agenda/agenda';
 
 
@@ -13,21 +15,34 @@ import { AgendaPage } from './../pages/agenda/agenda';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  constructor(private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen,
+    afAuth: AngularFireAuth) {
 
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Agenda', component: AgendaPage}
     ];
+    const authObserver = afAuth.authState.subscribe(user => {
+      if (user) {
+        this.rootPage = HomePage;
+        authObserver.unsubscribe();
+      } else {
+        this.rootPage = SigninPage;
+        authObserver.unsubscribe();
+      }
+    });
+
+    platform.ready().then(() => {
+      statusBar.styleDefault();
+      splashScreen.hide();
+    });
 
   }
-
+  
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -42,4 +57,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
 }

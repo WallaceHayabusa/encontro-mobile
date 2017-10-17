@@ -2,7 +2,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 import { MarcarEncontroPage } from './../marcar-encontro/marcar-encontro';
-import { Encontro } from './../../app/encontro/encontro';
+import { Encontro } from './../../providers/encontro';
 
 @Component({
     selector: 'agenda-page',
@@ -22,5 +22,5 @@ export class AgendaPage {
         });
     }
 
-    
+
 }
