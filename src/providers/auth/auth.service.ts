@@ -21,7 +21,15 @@ export class AuthService {
         return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password);
     }
 
+    signInWithFaceBook() {
+        return null;
+    }
+
     signOut() {
         return this.angularFireAuth.auth.signOut();
+    }
+
+    resetPassword(email: string) {
+        return this.angularFireAuth.auth.sendPasswordResetEmail(email);
     }
 }

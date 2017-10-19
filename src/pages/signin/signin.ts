@@ -29,6 +29,17 @@ export class SigninPage {
     this.navCtrl.push(SigninWithEmailPage);
   }
 
+  signInWithFacebook() {
+    this.authService.signInWithFaceBook()
+      .then(() => {
+        this.navCtrl.setRoot(HomePage);
+      })
+      .catch((error: any) => {
+        this.toastCtrl.create({ duration: 3000, position: 'bottom', message: 'Erro ao efetuar o login.' })
+        .present();
+      });
+  }
+
 //   signInWithGoogle() {
 //     this.authService.signInWithGoogle()
 //       .then(() => {

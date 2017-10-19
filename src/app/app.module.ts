@@ -1,4 +1,4 @@
-import { ResetPasswordPageModule } from './../pages/resetpassword/resetpassword.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -14,6 +14,7 @@ import { SigninPageModule } from './../pages/signin/signin.module';
 import { SignupPageModule } from './../pages/signup/signup.module';
 import { LoginPageModule } from './../pages/signinwithemail/signinwithemail.module';
 import { HomePageModule } from './../pages/home/home.module';
+import { ResetPasswordPageModule } from './../pages/resetpassword/resetpassword.module';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -63,6 +64,7 @@ const firebaseConfig= {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
+    
     
   ],
 })

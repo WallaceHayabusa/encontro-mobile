@@ -44,7 +44,7 @@ export class SigninWithEmailPage {
     }
 
     resetPassword() {
-        this.navCtrl.setRoot(ResetPasswordPage);
+        this.navCtrl.push(ResetPasswordPage);
     }
 
 }

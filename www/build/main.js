@@ -1,17 +1,18 @@
 webpackJsonp([0],{
 
-/***/ 105:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__signinwithemail_signinwithemail__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__signinwithemail_signinwithemail__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_user__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth_service__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__signup_signup__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -28,6 +29,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SigninPage = (function () {
     function SigninPage(navCtrl, toastCtrl, authService) {
         this.navCtrl = navCtrl;
@@ -36,10 +38,21 @@ var SigninPage = (function () {
         this.user = new __WEBPACK_IMPORTED_MODULE_4__providers_auth_user__["a" /* User */]();
     }
     SigninPage.prototype.createAccount = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__signup_signup__["a" /* SignupPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__signup_signup__["a" /* SignupPage */]);
     };
     SigninPage.prototype.signInWithEmailPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__signinwithemail_signinwithemail__["a" /* SigninWithEmailPage */]);
+    };
+    SigninPage.prototype.signInWithFacebook = function () {
+        var _this = this;
+        this.authService.signInWithFaceBook()
+            .then(function () {
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__home_home__["a" /* HomePage */]);
+        })
+            .catch(function (error) {
+            _this.toastCtrl.create({ duration: 3000, position: 'bottom', message: 'Erro ao efetuar o login.' })
+                .present();
+        });
     };
     return SigninPage;
 }());
@@ -49,7 +62,7 @@ __decorate([
 ], SigninPage.prototype, "form", void 0);
 SigninPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
-        selector: 'page-signin',template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\signin\signin.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n      <ion-title>\n\n        Login\n\n      </ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  \n\n  <ion-content padding>\n\n  \n\n    <button ion-button block color="light" (click)="createAccount()">\n\n      Criar conta\n\n    </button>\n\n  \n\n    <p text-center>Ou</p>\n\n  \n\n    <button ion-button block (click)="signInWithEmailPage()">\n\n      Entrar com e-mail e senha\n\n    </button>\n\n  \n\n  </ion-content>'/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\signin\signin.html"*/,
+        selector: 'page-signin',template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/signin/signin.html"*/'<ion-header>\n    <ion-navbar color="primary">\n      <ion-title>\n        Login\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n  \n    <button ion-button block color="light" (click)="createAccount()">\n      Criar conta\n    </button>\n  \n    <p text-center>ou</p>\n  \n    <button ion-button block (click)="signInWithEmailPage()">\n      Entrar com e-mail e senha\n    </button>\n\n    <button ion-button block icon-left color="facebook" margin-top (click)="signInWithFacebook()">\n      <ion-icon name="logo-facebook"></ion-icon>\n      Entrar com o Facebook  \n    </button>\n  \n  </ion-content>'/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/signin/signin.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_5__providers_auth_auth_service__["a" /* AuthService */]])
@@ -74,31 +87,14 @@ var User = (function () {
 
 /***/ }),
 
-/***/ 145:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 145;
-
-/***/ }),
-
-/***/ 146:
+/***/ 129:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetPasswordPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth_service__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgendaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marcar_encontro_marcar_encontro__ = __webpack_require__(254);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -111,38 +107,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ResetPasswordPage = (function () {
-    function ResetPasswordPage(navCtrl, toastCtrl, authService) {
+var AgendaPage = (function () {
+    function AgendaPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.toastCtrl = toastCtrl;
-        this.authService = authService;
+        this.navParams = navParams;
+        this.encontros = [];
+        this.encontros = this.navParams.get('param');
     }
-    return ResetPasswordPage;
+    AgendaPage.prototype.goToMarcarEncontro = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__marcar_encontro_marcar_encontro__["a" /* MarcarEncontroPage */], {
+            listaEncontros: this.encontros
+        });
+    };
+    return AgendaPage;
 }());
-ResetPasswordPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
-        selector: 'reset-password-page',template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\resetpassword\resetpassword.html"*/''/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\resetpassword\resetpassword.html"*/
+AgendaPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
+        selector: 'agenda-page',template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/agenda/agenda.html"*/'<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>Encontros</ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <div *ngFor="let encontro of encontros">\n      {{encontro.descricao}} às {{encontro.hora}} <br /> \n      do dia {{encontro.data | date: \'dd/MM/yyyy\'}} em {{encontro.local}}\n    </div>\n\n    <div class="wrapper">\n        <button ion-button outline (click)="goToMarcarEncontro()">Marcar Encontro</button>\n    </div>\n  </ion-content>'/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/agenda/agenda.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth_service__["a" /* AuthService */]])
-], ResetPasswordPage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["h" /* NavParams */]])
+], AgendaPage);
 
-//# sourceMappingURL=resetpassword.js.map
+//# sourceMappingURL=agenda.js.map
 
 /***/ }),
 
-/***/ 203:
+/***/ 146:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 146;
+
+/***/ }),
+
+/***/ 189:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/home/home.module": [
-		204
+		190
 	],
 	"../pages/signin/signin.module": [
-		207
+		208
 	],
 	"../pages/signinwithemail/signinwithemail.module": [
-		208
+		210
 	],
 	"../pages/signup/signup.module": [
 		209
@@ -159,18 +177,18 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 203;
+webpackAsyncContext.id = 189;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 204:
+/***/ 190:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -205,15 +223,15 @@ HomePageModule = __decorate([
 
 /***/ }),
 
-/***/ 205:
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninWithEmailPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__resetpassword_resetpassword__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth_service__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__resetpassword_resetpassword__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_auth_user__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__(0);
@@ -265,7 +283,7 @@ var SigninWithEmailPage = (function () {
         }
     };
     SigninWithEmailPage.prototype.resetPassword = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__resetpassword_resetpassword__["a" /* ResetPasswordPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__resetpassword_resetpassword__["a" /* ResetPasswordPage */]);
     };
     return SigninWithEmailPage;
 }());
@@ -275,7 +293,7 @@ __decorate([
 ], SigninWithEmailPage.prototype, "form", void 0);
 SigninWithEmailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_6__angular_core__["n" /* Component */])({
-        selector: 'sign-in-with-email-page',template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\signinwithemail\signinwithemail.html"*/'<ion-header>\n\n    <ion-navbar color="primary">\n\n      <ion-title>\n\n        Login\n\n      </ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  \n\n  \n\n  <ion-content padding>\n\n  \n\n    <form #form="ngForm" novalidate>\n\n      <ion-list>\n\n  \n\n        <ion-item>\n\n          <ion-label stacked>E-mail</ion-label>\n\n          <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">\n\n          O campo é obrigatório\n\n        </ion-item>\n\n  \n\n        <ion-item>\n\n          <ion-label stacked>Senha</ion-label>\n\n          <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">\n\n          O campo é obrigatório\n\n        </ion-item>\n\n  \n\n      </ion-list>\n\n  \n\n      <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="signIn()">\n\n        Entrar\n\n      </button>\n\n    </form>\n\n  \n\n    <button ion-button block clear (click)="resetPassword()">\n\n      Esqueci minha senha\n\n    </button>\n\n  \n\n  </ion-content>'/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\signinwithemail\signinwithemail.html"*/
+        selector: 'sign-in-with-email-page',template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/signinwithemail/signinwithemail.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Login\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n  \n  \n  <ion-content padding>\n  \n    <form #form="ngForm" novalidate>\n      <ion-list>\n  \n        <ion-item>\n          <ion-label stacked>E-mail</ion-label>\n          <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n        </ion-item>\n        <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">\n          O campo é obrigatório\n        </ion-item>\n  \n        <ion-item>\n          <ion-label stacked>Senha</ion-label>\n          <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n        </ion-item>\n        <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">\n          O campo é obrigatório\n        </ion-item>\n  \n      </ion-list>\n  \n      <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="signIn()">\n        Entrar\n      </button>\n    </form>\n  \n    <button ion-button block clear (click)="resetPassword()">\n      Esqueci minha senha\n    </button>\n  \n  </ion-content>'/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/signinwithemail/signinwithemail.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth_service__["a" /* AuthService */]])
@@ -285,17 +303,85 @@ SigninWithEmailPage = __decorate([
 
 /***/ }),
 
-/***/ 206:
+/***/ 192:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetPasswordPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ResetPasswordPage = (function () {
+    function ResetPasswordPage(navCtrl, toastCtrl, authService) {
+        this.navCtrl = navCtrl;
+        this.toastCtrl = toastCtrl;
+        this.authService = authService;
+        this.userEmail = '';
+    }
+    ResetPasswordPage.prototype.resetPassword = function () {
+        var _this = this;
+        if (this.form.form.valid) {
+            var toast_1 = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
+            this.authService.resetPassword(this.userEmail)
+                .then(function () {
+                toast_1.setMessage('Solicitação foi enviada para o seu e-mail.');
+                toast_1.present();
+                _this.navCtrl.pop();
+            })
+                .catch(function (error) {
+                if (error.code == 'auth/invalid-email') {
+                    toast_1.setMessage('O e-mail digitado não é valido.');
+                }
+                else if (error.code == 'auth/user-not-found') {
+                    toast_1.setMessage('O usuário não foi encontrado.');
+                }
+                toast_1.present();
+            });
+        }
+    };
+    return ResetPasswordPage;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["_14" /* ViewChild */])('form'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_forms__["d" /* NgForm */])
+], ResetPasswordPage.prototype, "form", void 0);
+ResetPasswordPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["n" /* Component */])({
+        selector: 'reset-password-page',template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/resetpassword/resetpassword.html"*/'<ion-header>\n    <ion-navbar color="primary">\n      <ion-title>\n        Resetar minha senha\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <form #form="ngForm" novalidate>\n      <ion-list>\n  \n        <ion-item>\n          <ion-label stacked>E-mail</ion-label>\n          <ion-input type="text" name="email" [(ngModel)]="userEmail" #email="ngModel" required></ion-input>\n        </ion-item>\n        <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">\n          O campo é obrigatório\n        </ion-item>\n  \n      </ion-list>\n  \n      <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="resetPassword()">\n        Resetar minha senha\n      </button>\n    </form>\n  </ion-content>\n  '/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/resetpassword/resetpassword.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__["a" /* AuthService */]])
+], ResetPasswordPage);
+
+//# sourceMappingURL=resetpassword.js.map
+
+/***/ }),
+
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_user__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(16);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -355,7 +441,7 @@ __decorate([
 ], SignupPage.prototype, "form", void 0);
 SignupPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["n" /* Component */])({
-        selector: 'signup-page',template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\signup\signup.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>\n\n      Criar nova conta\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <form #form="ngForm" novalidate>\n\n    <ion-list>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>E-mail</ion-label>\n\n        <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">\n\n        O campo é obrigatório\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label stacked>Senha</ion-label>\n\n        <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">\n\n        O campo é obrigatório\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="createAccount()">\n\n      Criar conta\n\n    </button>\n\n  </form>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\signup\signup.html"*/
+        selector: 'signup-page',template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/signup/signup.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Criar nova conta\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form #form="ngForm" novalidate>\n    <ion-list>\n\n      <ion-item>\n        <ion-label stacked>E-mail</ion-label>\n        <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>\n      </ion-item>\n      <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">\n        O campo é obrigatório\n      </ion-item>\n\n      <ion-item>\n        <ion-label stacked>Senha</ion-label>\n        <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>\n      </ion-item>\n      <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">\n        O campo é obrigatório\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="createAccount()">\n      Criar conta\n    </button>\n  </form>\n\n</ion-content>'/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/signup/signup.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__["a" /* AuthService */]])
@@ -365,7 +451,7 @@ SignupPage = __decorate([
 
 /***/ }),
 
-/***/ 207:
+/***/ 208:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -373,7 +459,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SigninPageModule", function() { return SigninPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -406,47 +492,6 @@ SigninPageModule = __decorate([
 
 /***/ }),
 
-/***/ 208:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signinwithemail__ = __webpack_require__(205);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var LoginPageModule = (function () {
-    function LoginPageModule() {
-    }
-    return LoginPageModule;
-}());
-LoginPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__signinwithemail__["a" /* SigninWithEmailPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__signinwithemail__["a" /* SigninWithEmailPage */]),
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_2__signinwithemail__["a" /* SigninWithEmailPage */]
-        ]
-    })
-], LoginPageModule);
-
-//# sourceMappingURL=signinwithemail.module.js.map
-
-/***/ }),
-
 /***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -455,7 +500,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupPageModule", function() { return SignupPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -488,48 +533,44 @@ SignupPageModule = __decorate([
 
 /***/ }),
 
-/***/ 253:
+/***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgendaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__marcar_encontro_marcar_encontro__ = __webpack_require__(254);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signinwithemail__ = __webpack_require__(191);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
 
-var AgendaPage = (function () {
-    function AgendaPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.encontros = [];
-        this.encontros = this.navParams.get('param');
+var LoginPageModule = (function () {
+    function LoginPageModule() {
     }
-    AgendaPage.prototype.goToMarcarEncontro = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__marcar_encontro_marcar_encontro__["a" /* MarcarEncontroPage */], {
-            listaEncontros: this.encontros
-        });
-    };
-    return AgendaPage;
+    return LoginPageModule;
 }());
-AgendaPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
-        selector: 'agenda-page',template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\agenda\agenda.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <ion-title>Encontros</ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  \n\n  <ion-content padding>\n\n    <div *ngFor="let encontro of encontros">\n\n      {{encontro.descricao}} às {{encontro.hora}} <br /> \n\n      do dia {{encontro.data | date: \'dd/MM/yyyy\'}} em {{encontro.local}}\n\n    </div>\n\n\n\n    <div class="wrapper">\n\n        <button ion-button outline (click)="goToMarcarEncontro()">Marcar Encontro</button>\n\n    </div>\n\n  </ion-content>'/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\agenda\agenda.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["h" /* NavParams */]])
-], AgendaPage);
+LoginPageModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__signinwithemail__["a" /* SigninWithEmailPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__signinwithemail__["a" /* SigninWithEmailPage */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__signinwithemail__["a" /* SigninWithEmailPage */]
+        ]
+    })
+], LoginPageModule);
 
-//# sourceMappingURL=agenda.js.map
+//# sourceMappingURL=signinwithemail.module.js.map
 
 /***/ }),
 
@@ -538,10 +579,10 @@ AgendaPage = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MarcarEncontroPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__agenda_agenda__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__agenda_agenda__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_encontro__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_encontro__ = __webpack_require__(387);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -591,7 +632,7 @@ var MarcarEncontroPage = (function () {
 }());
 MarcarEncontroPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
-        selector: 'marcar-encontro-page',template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\marcar-encontro\marcar-encontro.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Marcar Encontro</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-item>\n\n        <ion-label floating>Descrição</ion-label>\n\n        <ion-input type="text" name="descricao" [(ngModel)]="descricao" floating clearInput></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n        <ion-label floating>Data</ion-label>\n\n        <ion-datetime displayFormat="DD de MMMM de YYYY" min="2017" max="2099-12-31" [(ngModel)]="data"></ion-datetime>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n        <ion-label floating>Hora</ion-label>\n\n        <ion-datetime displayFormat="HH:mm" [(ngModel)]="hora"></ion-datetime>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n        <ion-label floating>Local</ion-label>\n\n        <ion-input type="text" [(ngModel)]="local" floating clearInput></ion-input>\n\n    </ion-item>\n\n\n\n    <div class="wrapper">\n\n        <button ion-button outline (click)="marcarEncontro()">Marcar</button>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\marcar-encontro\marcar-encontro.html"*/
+        selector: 'marcar-encontro-page',template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/marcar-encontro/marcar-encontro.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>Marcar Encontro</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-item>\n        <ion-label floating>Descrição</ion-label>\n        <ion-input type="text" name="descricao" [(ngModel)]="descricao" floating clearInput></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label floating>Data</ion-label>\n        <ion-datetime displayFormat="DD de MMMM de YYYY" min="2017" max="2099-12-31" [(ngModel)]="data"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n        <ion-label floating>Hora</ion-label>\n        <ion-datetime displayFormat="HH:mm" [(ngModel)]="hora"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n        <ion-label floating>Local</ion-label>\n        <ion-input type="text" [(ngModel)]="local" floating clearInput></ion-input>\n    </ion-item>\n\n    <div class="wrapper">\n        <button ion-button outline (click)="marcarEncontro()">Marcar</button>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/marcar-encontro/marcar-encontro.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], MarcarEncontroPage);
@@ -619,23 +660,23 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_resetpassword_resetpassword_module__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_agenda_agenda__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_marcar_encontro_marcar_encontro__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_signin_signin_module__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup_module__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_signinwithemail_signinwithemail_module__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_home_home_module__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angularfire2_auth__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_agenda_agenda__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_marcar_encontro_marcar_encontro__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signin_signin_module__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup_module__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signinwithemail_signinwithemail_module__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home_module__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_resetpassword_resetpassword_module__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angularfire2_auth__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2_database__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_auth_auth_service__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_auth_auth_service__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -673,45 +714,45 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["L" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_agenda_agenda__["a" /* AgendaPage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_marcar_encontro_marcar_encontro__["a" /* MarcarEncontroPage */],
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_4__pages_agenda_agenda__["a" /* AgendaPage */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_marcar_encontro_marcar_encontro__["a" /* MarcarEncontroPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {
                 monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
                     'Outubro', 'Novembro', 'Dezembro']
             }, {
                 links: [
                     { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/signin/signin.module#SigninPageModule', name: 'SigninPage', segment: 'signin', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/signinwithemail/signinwithemail.module#LoginPageModule', name: 'SigninWithEmailPage', segment: 'signinwithemail', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/signinwithemail/signinwithemail.module#LoginPageModule', name: 'SigninWithEmailPage', segment: 'signinwithemail', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_13_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-            __WEBPACK_IMPORTED_MODULE_12__pages_home_home_module__["HomePageModule"],
-            __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup_module__["SignupPageModule"],
-            __WEBPACK_IMPORTED_MODULE_9__pages_signin_signin_module__["SigninPageModule"],
-            __WEBPACK_IMPORTED_MODULE_11__pages_signinwithemail_signinwithemail_module__["LoginPageModule"],
-            __WEBPACK_IMPORTED_MODULE_0__pages_resetpassword_resetpassword_module__["a" /* ResetPasswordPageModule */],
+            __WEBPACK_IMPORTED_MODULE_11__pages_home_home_module__["HomePageModule"],
+            __WEBPACK_IMPORTED_MODULE_9__pages_signup_signup_module__["SignupPageModule"],
+            __WEBPACK_IMPORTED_MODULE_8__pages_signin_signin_module__["SigninPageModule"],
+            __WEBPACK_IMPORTED_MODULE_10__pages_signinwithemail_signinwithemail_module__["LoginPageModule"],
+            __WEBPACK_IMPORTED_MODULE_12__pages_resetpassword_resetpassword_module__["a" /* ResetPasswordPageModule */],
             __WEBPACK_IMPORTED_MODULE_13_angularfire2__["a" /* AngularFireModule */],
             __WEBPACK_IMPORTED_MODULE_14_angularfire2_auth__["b" /* AngularFireAuthModule */],
             __WEBPACK_IMPORTED_MODULE_15_angularfire2_database__["a" /* AngularFireDatabaseModule */],
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* IonicApp */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_agenda_agenda__["a" /* AgendaPage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_marcar_encontro_marcar_encontro__["a" /* MarcarEncontroPage */],
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_4__pages_agenda_agenda__["a" /* AgendaPage */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_marcar_encontro_marcar_encontro__["a" /* MarcarEncontroPage */],
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__["a" /* SplashScreen */],
-            { provide: __WEBPACK_IMPORTED_MODULE_2__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicErrorHandler */] },
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */],
+            { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
             __WEBPACK_IMPORTED_MODULE_16__providers_auth_auth_service__["a" /* AuthService */],
         ],
     })
@@ -721,59 +762,19 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 307:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetPasswordPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__resetpassword__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var ResetPasswordPageModule = (function () {
-    function ResetPasswordPageModule() {
-    }
-    return ResetPasswordPageModule;
-}());
-ResetPasswordPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_0__resetpassword__["a" /* ResetPasswordPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_0__resetpassword__["a" /* ResetPasswordPage */]),
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_0__resetpassword__["a" /* ResetPasswordPage */]
-        ]
-    })
-], ResetPasswordPageModule);
-
-//# sourceMappingURL=resetpassword.module.js.map
-
-/***/ }),
-
-/***/ 379:
+/***/ 378:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_signin_signin__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_agenda_agenda__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_signin_signin__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_agenda_agenda__ = __webpack_require__(129);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -834,20 +835,20 @@ var MyApp = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_14" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Nav */]),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Nav */])
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\app\app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
+        __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__["a" /* AngularFireAuth */]])
 ], MyApp);
 
-var _a, _b, _c, _d, _e;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 388:
+/***/ 387:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -864,13 +865,53 @@ var Encontro = (function () {
 
 /***/ }),
 
-/***/ 40:
+/***/ 388:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetPasswordPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__resetpassword__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ResetPasswordPageModule = (function () {
+    function ResetPasswordPageModule() {
+    }
+    return ResetPasswordPageModule;
+}());
+ResetPasswordPageModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_0__resetpassword__["a" /* ResetPasswordPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_0__resetpassword__["a" /* ResetPasswordPage */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_0__resetpassword__["a" /* ResetPasswordPage */]
+        ]
+    })
+], ResetPasswordPageModule);
+
+//# sourceMappingURL=resetpassword.module.js.map
+
+/***/ }),
+
+/***/ 41:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -893,27 +934,34 @@ var AuthService = (function () {
     AuthService.prototype.signIn = function (user) {
         return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password);
     };
+    AuthService.prototype.signInWithFaceBook = function () {
+        return null;
+    };
     AuthService.prototype.signOut = function () {
         return this.angularFireAuth.auth.signOut();
+    };
+    AuthService.prototype.resetPassword = function (email) {
+        return this.angularFireAuth.auth.sendPasswordResetEmail(email);
     };
     return AuthService;
 }());
 AuthService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _a || Object])
 ], AuthService);
 
+var _a;
 //# sourceMappingURL=auth.service.js.map
 
 /***/ }),
 
-/***/ 66:
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__signin_signin__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__signin_signin__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -949,7 +997,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Início</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <article>\n\n    Este aplicativo tem como objetivo organizar a vida de todos os casais, propor encontros, marcar datas \n\n    para encontros e muito mais!\n\n  </article>\n\n\n\n  <h1 id="bemvindo">Seja bem-vindo(a)!</h1>\n\n\n\n  <button ion-button block color="primary" (click)="signOut()">\n\n    Sair\n\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\wamoraes1\Desktop\Estudo\Ionic\encontro-mobile\src\pages\home\home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Início</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <article>\n    Este aplicativo tem como objetivo organizar a vida de todos os casais, propor encontros, marcar datas \n    para encontros e muito mais!\n  </article>\n\n  <h1 id="bemvindo">Seja bem-vindo(a)!</h1>\n\n  <button ion-button block color="primary" (click)="signOut()">\n    Sair\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/wallaceaugusto/Programacao/Ionic/encontro-mobile/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth_service__["a" /* AuthService */]])
 ], HomePage);
