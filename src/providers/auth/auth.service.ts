@@ -1,3 +1,4 @@
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -9,7 +10,7 @@ export class AuthService {
 
     user: Observable<firebase.User>;
 
-    constructor(private angularFireAuth: AngularFireAuth) {
+    constructor(private angularFireAuth: AngularFireAuth, private facebook: Facebook) {
         this.user = angularFireAuth.authState;
     }
 
@@ -22,7 +23,11 @@ export class AuthService {
     }
 
     signInWithFaceBook() {
-        return null;
+        return this.facebook.login(['public_profile', 'email'])
+            .then((res: FacebookLoginResponse) => {
+                return this.angularFireAuth.auth.signInWithCredential(firebase.auth.FacebookAuthProvider
+                    .credential(res.authResponse.accessToken));
+            });
     }
 
     signOut() {

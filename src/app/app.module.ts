@@ -1,4 +1,4 @@
-
+import { Facebook } from '@ionic-native/facebook';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -64,6 +64,7 @@ const firebaseConfig= {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
+    Facebook
     
     
   ],

@@ -30,11 +30,12 @@ export class SigninPage {
   }
 
   signInWithFacebook() {
+    this
     this.authService.signInWithFaceBook()
       .then(() => {
         this.navCtrl.setRoot(HomePage);
       })
-      .catch((error: any) => {
+      .catch((error) => {
         this.toastCtrl.create({ duration: 3000, position: 'bottom', message: 'Erro ao efetuar o login.' })
         .present();
       });
