@@ -1,3 +1,5 @@
+import { LoadingController } from 'ionic-angular';
+import { LoadingSpinner } from './../loading-spinner/loading-spinner';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -9,8 +11,9 @@ import * as firebase from 'firebase/app';
 export class AuthService {
 
     user: Observable<firebase.User>;
+    loadingSpinner: LoadingSpinner = new LoadingSpinner(this.loadingCtrl);
 
-    constructor(private angularFireAuth: AngularFireAuth, private facebook: Facebook) {
+    constructor(private angularFireAuth: AngularFireAuth, private facebook: Facebook, private loadingCtrl: LoadingController) {
         this.user = angularFireAuth.authState;
     }
 
@@ -30,7 +33,16 @@ export class AuthService {
             });
     }
 
-    signOut() {
+    signOut(): Promise<any> {
+        if (this.angularFireAuth.auth.currentUser.providerData.length) {
+            for (var i = 0; i < this.angularFireAuth.auth.currentUser.providerData.length; i++) {
+                var provider = this.angularFireAuth.auth.currentUser.providerData[i];
+
+                if (provider.providerId == firebase.auth.FacebookAuthProvider.PROVIDER_ID) {
+                    return this.facebook.logout();
+                }
+            }
+        }
         return this.angularFireAuth.auth.signOut();
     }
 
