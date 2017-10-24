@@ -35,7 +35,7 @@ export class SigninPage {
   }
 
   signInWithFacebook() {
-    this.authService.signInWithFaceBook()
+    this.authService.signInWithFacebook()
       .then(() => {
         this.loadingSpinner.presentLoading();
         this.navCtrl.setRoot(HomePage);
@@ -45,6 +45,19 @@ export class SigninPage {
         this.toastCtrl.create({ duration: 3000, position: 'bottom', message: 'Erro ao efetuar o login.' })
         .present();
       });
+  }
+
+  signInWithGoogle() {
+    this.authService.signInWithGoogle()
+      .then(() => {
+        this.loadingSpinner.presentLoading();
+        this.navCtrl.setRoot(HomePage);
+      })
+      .catch((error) => {
+        this.loadingSpinner.closeLoading();
+        this.toastCtrl.create({ duration: 3000, position: 'bottom', message: "Erro ao efetuar o login." })
+        .present();
+      }) 
   }
 
 //   signInWithGoogle() {

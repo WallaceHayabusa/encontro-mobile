@@ -25,7 +25,7 @@ export class SigninWithEmailPage {
     constructor(public navCtrl: NavController, public toastCtrl: ToastController,
         public authService: AuthService, public loadingCtrl: LoadingController) { }
 
-    signIn() {
+    signIn(email: string, password: string) {
         if (this.form.form.valid) {
             this.loadingSpinner.presentLoading();
             this.authService.signIn(this.user)
@@ -43,7 +43,7 @@ export class SigninWithEmailPage {
                         toast.setMessage('O usuário não foi encontrado.');
                     } else if (error.code == 'auth/wrong-password') {
                         toast.setMessage('A senha digitada não é valida.');
-                    } 
+                    }
 
                     toast.present();
                 });
@@ -53,5 +53,4 @@ export class SigninWithEmailPage {
     resetPassword() {
         this.navCtrl.push(ResetPasswordPage);
     }
-
 }

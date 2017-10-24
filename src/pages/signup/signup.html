@@ -7,11 +7,11 @@
 </ion-header>
 
 
-<ion-content padding>
-  <form #form="ngForm" novalidate>
+<ion-content class="conteudo" padding>
+  <form #form="ngForm" novalidate class="form">
     <ion-list>
 
-      <ion-item>
+      <ion-item class='campo'>
         <ion-label stacked>E-mail</ion-label>
         <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
       </ion-item>
@@ -19,7 +19,7 @@
         O campo é obrigatório
       </ion-item>
 
-      <ion-item>
+      <ion-item class='campo'>
         <ion-label stacked>Senha</ion-label>
         <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
       </ion-item>
@@ -29,7 +29,7 @@
 
     </ion-list>
 
-    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="createAccount()">
+    <button class='campo' ion-button block color="primary" (click)="createAccount()">
       Criar conta
     </button>
   </form>

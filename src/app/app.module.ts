@@ -1,4 +1,3 @@
-import { Facebook } from '@ionic-native/facebook';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -19,6 +18,9 @@ import { ResetPasswordPageModule } from './../pages/resetpassword/resetpassword.
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 import { AuthService } from '../providers/auth/auth.service';
 
@@ -64,9 +66,8 @@ const firebaseConfig= {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    Facebook
-    
-    
+    Facebook,
+    GooglePlus
   ],
 })
 export class AppModule {}

@@ -49,5 +49,15 @@
       "APP_ID": "169306063652071",
       "APP_NAME": "Encontro-Mobile"
     }
+  },
+  "cordova-plugin-googleplus": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-googleplus"
+    },
+    "is_top_level": true,
+    "variables": {
+      "REVERSED_CLIENT_ID": "io.encontro-mobile"
+    }
   }
 }

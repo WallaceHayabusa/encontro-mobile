@@ -1,0 +1,25 @@
+.form {
+    margin-top: 50%;
+}
+
+.conteudo {
+    background: url("../assets/images/wallpaper.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+#esqueci-senha {
+    font-weight: bold;
+    background-color: white;
+}
+
+.campo {
+    opacity: 0.5;
+}
+
+.error {
+    background-color: red;
+    opacity: 0.7;
+    color: white;
+}

@@ -1,4 +1,4 @@
-.scroll-content{
+.conteudo {
     background: url("../assets/images/wallpaper.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -8,8 +8,13 @@
 #titulo {
     font-family: "Brush Script MT", cursive;
 	font-size: 48px;
-	font-style: normal;
+	font-style: oblique;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 160px;
+    line-height: 160px;
+    color: white;
+}
+
+.campo {
+    opacity: 0.5;
 }

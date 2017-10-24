@@ -7,35 +7,37 @@
 </ion-header>
   
   
-  <ion-content padding>
+  <ion-content class="conteudo" padding center text-center>
   
-    <form #form="ngForm" novalidate>
+    <form class="form" #form="ngForm" novalidate>
       <ion-list>
   
-        <ion-item>
+        <ion-item class="campo">
           <ion-label stacked>E-mail</ion-label>
           <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
         </ion-item>
-        <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
-          O campo é obrigatório
+
+        <ion-item class="error" *ngIf="email.errors && (email.dirty || email.touched)" align-bottom>
+          O campo E-mail é obrigatório
         </ion-item>
   
-        <ion-item>
+        <ion-item class="campo">
           <ion-label stacked>Senha</ion-label>
           <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
         </ion-item>
-        <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
-          O campo é obrigatório
+
+        <ion-item class="error" *ngIf="password.errors && (password.dirty || password.touched)">
+          O campo Senha é obrigatório
         </ion-item>
   
       </ion-list>
   
-      <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="signIn()">
+      <button ion-button block color="primary" [disabled]="!this.form.valid" (click)="signIn()">
         Entrar
       </button>
     </form>
   
-    <button ion-button block clear (click)="resetPassword()">
+    <button id="esqueci-senha" ion-button block clear (click)="resetPassword()">
       Esqueci minha senha
     </button>
   
