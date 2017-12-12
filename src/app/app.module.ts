@@ -1,3 +1,5 @@
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { EncontroService } from './../providers/encontro-service/encontro-service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -66,8 +68,10 @@ const firebaseConfig= {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
+    EncontroService,
     Facebook,
-    GooglePlus
+    GooglePlus,
+    AngularFireDatabase
   ],
 })
 export class AppModule {}

@@ -17,9 +17,7 @@ export class AgendaPage {
     }
 
     goToMarcarEncontro() {
-        this.navCtrl.push(MarcarEncontroPage, {
-            listaEncontros: this.encontros
-        });
+        this.navCtrl.push(MarcarEncontroPage);
     }
 
 
